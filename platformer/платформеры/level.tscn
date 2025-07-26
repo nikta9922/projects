@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfyx1wnf2dd3i"]
+[gd_scene load_steps=18 format=3 uid="uid://dfyx1wnf2dd3i"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_33abu"]
 [ext_resource type="Texture2D" uid="uid://dbfxpksgo1ivp" path="res://resourses_platformer/Terrain/Terrain (16x16).png" id="1_nwj18"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://pckkp8owecm4" path="res://resourses_platformer/background/The Dawn/Layers/6.png" id="12_mhl72"]
 [ext_resource type="Texture2D" uid="uid://cka7yqsswdcjc" path="res://resourses_platformer/background/The Dawn/Layers/7.png" id="13_08svq"]
 [ext_resource type="Texture2D" uid="uid://dh8kffbhpvhkl" path="res://resourses_platformer/background/The Dawn/Layers/8.png" id="14_42ly2"]
+[ext_resource type="PackedScene" uid="uid://b1maeas77l1u4" path="res://bot_hard.tscn" id="15_8r033"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ndkv"]
 texture = ExtResource("1_nwj18")
@@ -281,7 +282,15 @@ position = Vector2(-6, -22)
 texture = ExtResource("14_42ly2")
 
 [node name="Plaer" parent="." instance=ExtResource("2_e1qo5")]
-position = Vector2(-1277, 366)
+position = Vector2(-1276, 356)
+
+[node name="Camera2D2" type="Camera2D" parent="Plaer"]
+zoom = Vector2(3, 3)
+limit_left = -1300
+limit_top = 150
+limit_right = 2025
+limit_bottom = 650
+position_smoothing_enabled = true
 
 [node name="Coin" type="Node2D" parent="."]
 
@@ -319,3 +328,6 @@ position = Vector2(895, 455)
 
 [node name="Bot" parent="." instance=ExtResource("6_460ni")]
 position = Vector2(43, 457)
+
+[node name="Bot_hard" parent="." instance=ExtResource("15_8r033")]
+position = Vector2(1791, 573)
