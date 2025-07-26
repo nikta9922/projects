@@ -1,0 +1,143 @@
+[gd_scene load_steps=21 format=3 uid="uid://56h73w87aij6"]
+
+[ext_resource type="Texture2D" uid="uid://cpqj0ctb3q8uy" path="res://resourses_platformer/Main Characters/Mask Dude/coin/coin1_16x16.png" id="1_6enj4"]
+[ext_resource type="Script" path="res://coins.gd" id="1_coi7w"]
+[ext_resource type="AudioStream" uid="uid://dktl77lcw37gk" path="res://resourses_platformer/Main Characters/Mask Dude/coin/sound_coin.wav" id="3_swoqm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24f60"]
+radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vecm"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yyya"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fia0"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu5nt"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyicq"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53qh8"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1dqk"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnw44"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16xfo"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a16r0"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1t3l"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhn4f"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dgbt"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0ba"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttj35"]
+atlas = ExtResource("1_6enj4")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfh3v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vecm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yyya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fia0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu5nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyicq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53qh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1dqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnw44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16xfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a16r0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1t3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhn4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dgbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttj35")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Coins" type="Area2D"]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_coi7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_24f60")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(1.4375, 1.4375)
+sprite_frames = SubResource("SpriteFrames_cfh3v")
+autoplay = "default"
+frame = 14
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_swoqm")
+volume_db = 16.076
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
