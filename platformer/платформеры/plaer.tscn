@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c6r313h4eglyr"]
+[gd_scene load_steps=48 format=3 uid="uid://c6r313h4eglyr"]
 
 [ext_resource type="Script" path="res://Plaer.gd" id="1_452kh"]
 [ext_resource type="Texture2D" uid="uid://csb4qpffni2nm" path="res://resourses_platformer/Main Characters/Ninja Frog/Double Jump (32x32).png" id="2_opv0s"]
@@ -304,6 +304,10 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j11yl"]
+height = 22.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gppyr"]
+size = Vector2(20, 4)
 
 [node name="Plaer" type="CharacterBody2D"]
 collision_mask = 14
@@ -311,7 +315,16 @@ script = ExtResource("1_452kh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g0a0h")
-animation = &"run"
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_j11yl")
+
+[node name="Kill_zone" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill_zone"]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_gppyr")
+
+[connection signal="body_entered" from="Kill_zone" to="." method="_on_kill_zone_body_entered"]

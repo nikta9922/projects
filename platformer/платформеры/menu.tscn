@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmtoeea48ntjj"]
+[gd_scene load_steps=3 format=3 uid="uid://cmtoeea48ntjj"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_s5xbl"]
+[ext_resource type="Texture2D" uid="uid://ca30d7htcocfy" path="res://resourses_platformer/HP.png" id="2_ke6ax"]
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_s5xbl")
@@ -19,3 +20,18 @@ text = "0"
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "0"
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "hp"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+anchors_preset = -1
+offset_left = 25.0
+offset_top = 51.0
+offset_right = 120.0
+offset_bottom = 95.0
+max_value = 3.0
+value = 3.0
+nine_patch_stretch = true
+texture_progress = ExtResource("2_ke6ax")

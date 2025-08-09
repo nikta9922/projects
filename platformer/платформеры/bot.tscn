@@ -90,7 +90,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6ygl2")
 }],
-"loop": true,
+"loop": false,
 "name": &"hit",
 "speed": 5.0
 }, {
@@ -140,7 +140,7 @@ animations = [{
 radius = 14.0
 height = 34.0
 
-[node name="Bot" type="CharacterBody2D"]
+[node name="Bot" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_myiiw")
@@ -149,7 +149,7 @@ script = ExtResource("1_myiiw")
 position = Vector2(0, 0.999999)
 scale = Vector2(1, 1.04545)
 sprite_frames = SubResource("SpriteFrames_06lgw")
-animation = &"run"
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 4)

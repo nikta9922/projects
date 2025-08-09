@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var PlaerZone=false
 var speed=100
-var hp=100
+var hp=200
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	velocity.x=speed
@@ -46,3 +46,13 @@ func _on_zone_body_entered(body: Node2D) -> void:
 func _on_zone_body_exited(body: Node2D) -> void:
 	if body.name=="Plaer":
 		PlaerZone=false # Replace with function body.
+func bot_hit():
+	hp-=25
+	if hp<=0:
+		queue_free()
+	print(hp)
+	$AnimatedSprite2D.play ("hit")
+	velocity.x=0
+	await $AnimatedSprite2D.animation_finished
+	velocity.x=speed
+	$AnimatedSprite2D.play ("run")

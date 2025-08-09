@@ -25,3 +25,14 @@ func _physics_process(delta):
 		var object=get_slide_collision(coll).get_collider()
 		if object is CharacterBody2D and object.name == "Plaer":
 			object.dead_Plaer()
+func bot_hit():
+	hp-=25
+	if hp<=0:
+		queue_free()
+	print(hp)
+	$AnimatedSprite2D.play ("hit")
+	velocity.x=0
+	await $AnimatedSprite2D.animation_finished
+	velocity.x=speed
+	$AnimatedSprite2D.play ("run")
+	

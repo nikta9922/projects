@@ -260,7 +260,7 @@ radius = 15.1327
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpnph"]
 size = Vector2(112, 68)
 
-[node name="Bot_hard" type="CharacterBody2D"]
+[node name="Bot_hard" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_t2tey")
